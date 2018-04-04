@@ -4,7 +4,7 @@
         <img v-if="!scroll" @click="goMain" class="pic" src="http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/logo_white.svg" alt="">
         <img v-if="imgSrc==2" @click="goMain" class="pic" src="http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/logo_black.svg" alt="">
         <div :class="[(flag||scroll) ? 'nav' : 'nav2']">
-            <li v-for="item in arr" @click="check(item,arr)" :class="[item.checked ? 'active' : 'inact']">{{ item.title }}</li>
+            <li v-for="(item,index) in arr" @click="check(item,arr)" :class="[item.checked ? 'active' : 'inact']" :key="index">{{ item.title }}</li>
         </div>
         <div :class="[(flag||scroll) ? 'line' : 'line2']"></div>
     </div>

@@ -122,7 +122,7 @@
                         {text: "新闻", index: 1, checked: false, flag: true},
                         {text: "关于", index: 2, checked: false, flag: true},
                         {text: "商业合作", index: 3, checked: true, flag: false}],
-                checked: true,
+                checked: false,
                 swiperData1: [
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/swiper/imgs1/slide1.jpg',
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/swiper/imgs1/slide2.jpg',

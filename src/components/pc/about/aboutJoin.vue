@@ -7,7 +7,7 @@
                     <p>和我们一起打造影响世界的共享出行平台！</p>
                     <div class="img">
                         <img src="https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/pc/aboutJoin/img1.png" alt="">
-                        <a href="https://www.lagou.com/gongsi/j44749.html" class="button">查看职位<span></span></a>
+                        <a href="https://www.lagou.com/gongsi/j44749.html" target="blank" class="button">查看职位<span></span></a>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@ img {
 }
 .con {
     width: 100vw;
-    padding-top: 11.2vw;
+    // padding-top: 11.2vw;
     min-width: 1080px;
     overflow: hidden;
 }
@@ -131,10 +131,14 @@ img {
                 line-height: 76px;
                 text-align: center;
                 margin-left: -112px;
-                background: url(https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/pc/aboutJoin/btn_jobs.svg) no-repeat left top;
+                background: url(https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/pc/cooperation/btn_jobs_nor.png) no-repeat left top;
                 background-size: contain;
                 font-family: PingFangSC-Semibold;
                 color: #3E3A39;
+                &:hover {
+                    background: url(https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/pc/cooperation/btn_jobs_prs.png) no-repeat left top;
+                    background-size: contain;
+                }
                 span {
                     display: inline-block;
                     width: 18px;

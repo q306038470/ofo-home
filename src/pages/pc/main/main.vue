@@ -1,5 +1,5 @@
 <template>
-	<div class="contain">
+	<div class="contain" @scroll="scrollFn">
 		<nav-bar class="navbar" :arr="arr" :imgSrc="imgSrc" :flag="flag"></nav-bar>
 		<video class="mainVideo" src="http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/new.mp4" autoplay loop></video>
 		
@@ -131,11 +131,17 @@
 			},
 			closeCheck (check) {
 				this.check = check;
+			},
+			scrollFn(e){
+				this.flag = e.target.scrollTop;
 			}
 		},
 		created(){
 			window.scrollTo(0, 0);
 		},
+		mounted(){
+			
+		}
 	}
 </script>
 
@@ -147,6 +153,8 @@
 	.contain {
 		position: relative;
 		width: 100vw;
+		height: 100%;
+		overflow-y: auto;
 	}
 	.mainVideo {
 		display: block;

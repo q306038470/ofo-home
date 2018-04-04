@@ -108,7 +108,7 @@
                         <div class="form-wrap">
                             <div class="form">
                                 <div class="input"><span class="bg1"></span><input type="text" placeholder="企业名称（必填）"></div>
-                                <div class="checkbox"><input type="checkbox" v-model="checked" id="checkbox"><label for="checkbox">我是个人广告主</label></div>
+                                <div class="checkbox"><span :class="checked ? 'active' : ''"><input type="checkbox" v-model="checked" id="checkbox"></span><label for="checkbox">我是个人广告主</label></div>
                                 <div class="input"><span class="bg2"></span><input type="text" placeholder="姓名（必填）"></div>
                                 <div class="input"><span class="bg3"></span><input type="text" placeholder="手机（必填）"></div>
                                 <div class="input"><span class="bg4"></span><input type="text" placeholder="邮箱"></div>
@@ -163,7 +163,7 @@
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/pc/cooperation/swiper/imgs2/slide3.png',
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/pc/cooperation/swiper/imgs2/slide4.png'
                 ],
-                checked: true
+                checked: false
             }
         },
         components: {
@@ -437,9 +437,30 @@
                     margin: -10px 0 24px;
                     font-size: 16px;
                     color: #3E3A39;
+                    span {
+                        width: 20px;
+                        height: 20px;
+                        display: inline-block;
+                        vertical-align: middle;
+                        overflow: hidden;
+                        border-radius: 3px;
+                        background: #ccc url(https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/ic_contact_checkbox_nor.svg) no-repeat center;
+                        background-size: 20px;
+                        &.active{
+                            background: url(https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/ic_contact_checkbox_sel.svg) no-repeat center;
+                            background-size: 20px;
+                        }
+                    }
+                    input {
+                        width: 20px;
+                        height: 20px;
+                        display: inline-block;
+                        opacity: 0;
+                    }
                     label {
                         padding-left: 8px;
                         vertical-align: middle;
+                        display: inline-block;
                     }
                 }
                 .input {
