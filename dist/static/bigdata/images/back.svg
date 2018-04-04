@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="30px" viewBox="0 0 17 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>back</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页" transform="translate(-38.000000, -146.000000)" fill="#3E3A39">
+            <g id="nav" transform="translate(0.000000, 117.000000)">
+                <path d="M44.0355339,43.5208153 L54.2885822,33.267767 C55.264893,32.2914562 55.264893,30.7085438 54.2885822,29.732233 C53.3122715,28.7559223 51.7293591,28.7559223 50.7530483,29.732233 L38.732233,41.7530483 C38.2440777,42.2412037 38,42.8810095 38,43.5208153 C38,44.1606211 38.2440777,44.8004269 38.732233,45.2885822 L50.7530483,57.3093975 C51.7293591,58.2857082 53.3122715,58.2857082 54.2885822,57.3093975 C55.264893,56.3330868 55.264893,54.7501743 54.2885822,53.7738636 L44.0355339,43.5208153 Z" id="back"></path>
+            </g>
+        </g>
+    </g>
+</svg>

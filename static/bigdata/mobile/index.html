@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=0">
+		<meta name="format-detection" content="telephone=no">
+		<title>ofo大数据开放平台</title>
+		<link href="../favicon.ico" rel="shortcut icon" />
+		<link href="../css/mobile.css" rel="stylesheet">
+		<link href="../css/animation.css" rel="stylesheet">
+		<script>
+			(function (doc, win) {
+				var docEl = doc.documentElement,
+				resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+				recalc = function () {
+					var clientWidth = docEl.clientWidth;
+					if (!clientWidth) return;
+					docEl.style.fontSize = 10 * (clientWidth / 375) + 'px';
+				};
+
+				if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+	</head>
+	<body>
+		<nav>
+			<a href="javascript:history.go(-1);">
+				<img src="../images/back.svg" alt="">
+			</a>
+			<span></span>
+		</nav>
+		<header>
+			<div class="head-body">
+				<div class="text-bar">
+					<span class="o-img1">
+						<!-- <img src="../images/oval2-m.png" alt=""> -->
+					</span>
+					<div class="text-body">
+						<p class="f36 tr-title">ofo奇点大数据系统</p>
+						<p class="f80 tr-con">开放平台</p>
+						<p class="f20 tr-bot">共建城市智慧交通 数据实时共享</p>
+					</div>			
+					<span class="o-img2">
+						<!-- <img src="../images/oval1-m.png" alt=""> -->
+					</span>
+				</div>				
+			</div>
+			<img src="../images/headpic@3x.png" alt="">
+		</header>
+		<!--  -->
+		<section>
+			<div class="left-wrapper clearfix border-b">
+				<div class="fl pic-bar">
+					<img src="../images/homepage_pic_1.png" alt="">
+				</div>
+				<div class="fr text-bar">
+					<h3>数据开放平台</h3>
+					<p>共享车辆实时数据，支持城市单车投放与管理规范化</p>
+				</div>
+			</div>
+			<div class="left-wrapper clearfix">
+				<div class="fl pic-bar">
+					<img src="../images/homepage_pic_2.png" alt="">
+				</div>
+				<div class="fr text-bar">
+					<h3>API数据接口</h3>
+					<p>支持实时数据推送至政府数据库，助力共建城市智慧交通</p>
+				</div>
+			</div>
+			<!--  -->
+			<div class="pic-wrapper">
+				<ul class="clearfix">
+					<li>
+						<span></span>
+						<h3 class="f20">单车投放</h3>
+					</li>
+					<li>
+						<span></span>
+						<h3 class="f20">车辆状态</h3>
+					</li>
+					<li>
+						<span></span>
+						<h3 class="f20">交通流量</h3>
+					</li>
+					<li>
+						<span></span>
+						<h3 class="f20">运维监管</h3>
+					</li>
+					<li>
+						<span></span>
+						<h3 class="f20">企业信息</h3>
+					</li>
+				</ul>
+			</div>
+			<article>
+				<h3>政府合作</h3>
+				<p>政府合作联系邮箱：grdata@ofo.com</p>
+				<!-- <p>政府合作联系微信：123456</p>
+				<p>技术交流QQ群：123456</p> -->
+				<p class="hint">* 为及时处理您的问题，邮件中请注明政府所属城市、联系人手机号</p>
+			</article>
+		</section>
+		<!--  -->
+		<footer>
+			<div class="icon-bar">
+				<div class="clearfix">
+					<div class="fl">
+						<span class="logo-slogan"></span>
+					</div>
+					<div class="fr" style="padding-top:1rem;">
+						<a href="https://weibo.com/ofobike?is_hot=1" class="weibo"></a>
+						<a href="javascript:;" class="weixin">
+							<div class="erweima">
+								<img src="../images/mobile_weixin.png" alt="">
+							</div>
+						</a>
+					</div>
+				</div>
+				<p>电话：4001 507 507（周一至周日：7X24H）</p>
+				<p>地址：北京市海淀区北四环西路58号理想国际大厦11层</p>
+				<a id='___szfw_logo___' href='https://credit.szfw.org/CX20170726035260000588.html' target='_blank'>
+					<span class="bitmap"></span>
+				</a>
+			</div>
+			<div class="article">
+				<p>
+					Copyright © 2017 ofo Inc. 保留所有权利。京公网安备 11010802022978号<br>公共事务邮箱 gr@ofo.so 商务合作邮箱 bdinchina@ofo.so
+				</p>
+			</div>
+		</footer>
+		<script src="../js/jquery.min.js"></script>
+		<script>
+			$(function(){
+				var off = true;
+				$(".weixin").click(function(){
+					if( off ){
+						$(".erweima").show();
+						off = false;
+					}else{
+						$(".erweima").hide();
+						off = true;
+					}
+				})
+				$("nav").children("span").on('click', function() {
+					window.location.href = '/#/';
+					return false; 
+				})
+			})
+		</script>
+	</body>
+</html>
