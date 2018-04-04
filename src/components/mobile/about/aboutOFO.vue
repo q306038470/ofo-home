@@ -82,6 +82,7 @@ export default {
     .about-wrap{
         width: 100%;
         padding-right: rem(10);
+        padding-top: rem(15);
         p{
             margin-bottom: rem(35);
             line-height: rem(21);
@@ -141,9 +142,7 @@ export default {
             background: #FFD900;
         }
         .text {
-            padding-right: rem(8);
-            padding-left: rem(18);
-            padding-bottom: rem(2);
+            padding: rem(10) rem(8) rem(2) rem(18);
             margin-bottom: rem(20);
             background: #FBFBFB;
         }
@@ -152,7 +151,6 @@ export default {
         width:100%;
         height: rem(365);
         margin-bottom:rem(30);
-        border:rem(1) solid transparent;
         position: relative;
         .bg-market{
             width:100%;
@@ -174,7 +172,7 @@ export default {
         }
         .con-market{
             width:rem(281);
-            height: rem(315);
+            min-height: rem(315);
             position: absolute;
             left:0;
             margin-top:rem(50);
