@@ -82,10 +82,14 @@
     color: #FFFFFF;
   }
   .describe {
+    width: 34.02vw;
     font-family: PingFangSC-Semibold;
     font-weight: 700;
     font-size: 1.39vw;
     color: #FFFFFF;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   .text {
     width: 34.02vw;

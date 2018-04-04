@@ -338,8 +338,8 @@
                 position: absolute;
                 top: 0;
                 left: 0;
+                bottom: 0;
                 width: rem(41);
-                height: rem(36);
                 &.bg1 {
                     background: #FFD900 url(https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/ic_contact_enterprise.svg) no-repeat center;
                     background-size: rem(16) auto;
@@ -358,8 +358,8 @@
                 }
             }
             input {
-                width: 100%;
-                height: 100%;
+                width: 99%;
+                height: rem(36);
                 border: none;
                 padding-left: rem(53);
                 font-size: rem(15);
@@ -404,7 +404,6 @@
         span {
             display: block;
             font-size: rem(12);
-            font-weight: bold;
         }
     }
 }
