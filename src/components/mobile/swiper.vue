@@ -69,7 +69,6 @@ export default {
                     setTimeout(() => {
                         this.pcInit();
                         this.count ++;
-                        console.log(this.count);
                     },2000)
                 }
             }, 10)
