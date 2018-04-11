@@ -9,12 +9,17 @@
 </template>
 
 <script>
+import utils from '@/util/utils';
+
+
 export default {
     name: 'navBar',
     data() {
         return{
            translateX: 0,
-           transition: true
+           left: 0,
+           transition: true,
+           count: 0
         }
     },
     props: ['data'],
@@ -22,6 +27,7 @@ export default {
         containerStyle(){
             return {
                 transform: `translateX(${this.translateX}%)`,
+                left: `${this.left}%`,
                 width: `${this.dataArr.length * 100}%`
             }
         },
@@ -37,23 +43,46 @@ export default {
         }
     },
     methods: {
-        init() {
+        mTnit() {
             let timer = setInterval(() => {
-            if (this.translateX >  -(100 - 100 / this.dataArr.length)) {
-                this.translateX = this.translateX - 100 / this.dataArr.length;
-                this.transition = true;
-                if(this.translateX <= -(100 - 100 / this.dataArr.length)){
-                    setTimeout(() => {
-                        this.translateX = 0;
-                        this.transition = false;
-                    },1000)
+                if (this.translateX >  -(100 - 100 / this.dataArr.length)) {
+                    this.translateX = this.translateX - 100 / this.dataArr.length;
+                    this.transition = true;
+                    if(this.translateX <= -(100 - 100 / this.dataArr.length)){
+                        setTimeout(() => {
+                            this.translateX = 0;
+                            this.transition = false;
+                        },1000)
+                    }
                 }
-            }
-        }, 2000)
+            }, 2000)
+            
+        },
+        pcInit(){
+            let timer = setInterval(() => {
+                if (this.left <= (-100 * (this.dataArr.length - 1))) {
+                    this.left = 0;
+                }
+                this.left -= 1;
+                if (this.left % 100 == 0) {
+                    clearInterval(timer);
+                    setTimeout(() => {
+                        this.pcInit();
+                        this.count ++;
+                        console.log(this.count);
+                    },2000)
+                }
+            }, 10)
         }
     },
     mounted () {
-        this.init();
+        let dev = utils.devicetype();
+        let isPC = (!dev.isAndroid && !dev.isIOS) ? true : false;
+        if (isPC) {
+            this.pcInit();
+        } else {
+            this.mTnit();
+        }
     }
 
 }
@@ -73,10 +102,14 @@ img {
 .swiper-wrap {
     width: 100%;
     height: 100%;
+    position: relative;
 }
 .swiper-container {
     overflow: hidden;
     height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
     transition: transform 0s linear;
     -moz-transition: transform 0s linear;
     -ms-transition: transform 0s linear;
