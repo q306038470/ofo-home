@@ -8,6 +8,6 @@ if(env == 'production'){
     hostname = '//qatest.api.ofo.com';
 }
 
-export const website = hostname + '/website/commit'; 
+export const website = hostname + '/outter/website/commit'; 
 
 

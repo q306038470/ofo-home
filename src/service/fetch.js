@@ -84,14 +84,18 @@
 
 import {website} from '../constant/url'
 
-export default function ajax(params) {
+export default function ajax(params,cb) {
     let paramsStr = '';
-    for (key in params) {
-        paramsStr += `${key}=${params[key]}&`;
+    const param = [];
+    for (let key in params) {
+        param.push(`${key}=${params[key]}`)
     }
+
+    paramsStr = param.join('&');
+    console.log(paramsStr)
     let xhr = new XMLHttpRequest();
     xhr.open('POST', website);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // xhr.setRequestHeader('Content-type', 'application/json;charset=utf-8');
     xhr.onload = function () {
         var json;
         try {
@@ -101,7 +105,8 @@ export default function ajax(params) {
             return;
         }
         if (json) {
-            if (json.errorCode === 200) {
+            if (json.errorCode == 200) {
+                cb && cb()
             } else {
                 alert(json.msg);
             }
@@ -112,5 +117,6 @@ export default function ajax(params) {
     xhr.onerror = function () {
         alert('网络请求失败');
     };
-    xhr.send(paramsStr);
+    console.log(params)
+    xhr.send(JSON.stringify(params));
 }

@@ -177,13 +177,34 @@
             'swiper': swiper
         },
         methods: {
+            checkMobile(tel){ 
+                if(/^1[3|4|5|8|9][0-9]\d{4,8}$/.test(tel)){ 
+                    return true; 
+                } 
+                return false;
+            },
             handleClick(){
+                var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+                if (!this.companyName || !this.name || !this.tel || !this.email) {
+                    alert('请填写完整信息');
+                    return false;
+                }
+                if (!this.checkMobile(this.tel)) {
+                    alert('请填写正确手机号');
+                    return false;
+                }
+                if (!reg.test(this.email)) {
+                    alert('请填写正确邮箱');
+                    return false;
+                }
                 ajax({
                     companyName: this.companyName,
-                    isSingleUser: false, //          
+                    isSingleUser: this.isSingleUser, //          
                     name: this.name, //   
                     tel: this.tel, //    
                     email: this.email, //   
+                },function(){
+                    alert('提交成功')
                 })
             }
         },

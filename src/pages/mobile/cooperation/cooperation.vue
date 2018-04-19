@@ -89,12 +89,12 @@
                 <h2>了解更多商业化合作<br/>资源及案例</h2>
                 <div class="form-wrap">
                     <div class="form">
-                        <div class="input"><span class="bg1"></span><input type="text" placeholder="企业名称（必填）"></div>
-                        <div class="checkbox"><span :class="checked ? 'active' : ''"><input type="checkbox" id="checkbox" v-model="checked"></span><label for="checkbox">我是个人广告主</label></div>
-                        <div class="input"><span class="bg2"></span><input type="text" placeholder="姓名（必填）"></div>
-                        <div class="input"><span class="bg3"></span><input type="text" placeholder="手机（必填）"></div>
-                        <div class="input"><span class="bg4"></span><input type="text" placeholder="邮箱"></div>
-                        <div class="button">预约顾问咨询</div>
+                        <div class="input"><span class="bg1"></span><input type="text" placeholder="企业名称（必填）" v-model="companyName"></div>
+                        <div class="checkbox"><span :class="{'active': isSingleUser}"><input type="checkbox" id="checkbox" v-model="isSingleUser"></span><label for="checkbox">我是个人广告主</label></div>
+                        <div class="input"><span class="bg2"></span><input type="text" placeholder="姓名（必填）" v-model="name"></div>
+                        <div class="input"><span class="bg3"></span><input type="text" placeholder="手机（必填）" v-model="tel"></div>
+                        <div class="input"><span class="bg4"></span><input type="text" placeholder="邮箱" v-model="email"></div>
+                        <div class="button" @click="handleClick">预约顾问咨询</div>
                     </div>
                 </div>
             </div>
@@ -113,6 +113,7 @@
     import navBar from '../../../components/mobile/nav-bar';
     import foot from '../../../components/mobile/foot';
     import swiper from '../../../components/mobile/swiper';
+    import ajax from '../../../service/fetch';
 
     export default {
         name: 'MobileAbout',
@@ -122,7 +123,6 @@
                         {text: "新闻", index: 1, checked: false, flag: true},
                         {text: "关于", index: 2, checked: false, flag: true},
                         {text: "商业合作", index: 3, checked: true, flag: false}],
-                checked: false,
                 swiperData1: [
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/swiper/imgs1/slide1.jpg',
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/swiper/imgs1/slide2.jpg',
@@ -134,9 +134,45 @@
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/swiper/imgs2/slide3.png',
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/swiper/imgs2/slide4.png'
                 ],
+                companyName: '', //      
+                isSingleUser: false, //          
+                name: '', //   
+                tel: '', //    
+                email: '', // 
             }
         },
-        methods: {},
+        methods: {
+            checkMobile(tel){ 
+                if(/^1[3|4|5|8|9][0-9]\d{4,8}$/.test(tel)){ 
+                    return true; 
+                } 
+                return false;
+            },
+            handleClick(){
+                var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+                if (!this.companyName || !this.name || !this.tel || !this.email) {
+                    alert('请填写完整信息');
+                    return false;
+                }
+                if (!this.checkMobile(this.tel)) {
+                    alert('请填写正确手机号');
+                    return false;
+                }
+                if (!reg.test(this.email)) {
+                    alert('请填写正确邮箱');
+                    return false;
+                }
+                ajax({
+                    companyName: this.companyName,
+                    isSingleUser: this.isSingleUser, //          
+                    name: this.name, //   
+                    tel: this.tel, //    
+                    email: this.email, //   
+                },function(){
+                    alert('提交成功')
+                })
+            }
+        },
         components: {
             'nav-bar': navBar,
             'foot': foot,
