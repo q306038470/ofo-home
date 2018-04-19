@@ -82,3 +82,35 @@
 //     //axios.defaults.baseURL = "//"+config['base_url'];
 // }
 
+import {website} from '../constant/url'
+
+export default function ajax(params) {
+    let paramsStr = '';
+    for (key in params) {
+        paramsStr += `${key}=${params[key]}&`;
+    }
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', website);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onload = function () {
+        var json;
+        try {
+            json = JSON.parse(xhr.responseText);
+        } catch (e) {
+            alert('网络请求失败');
+            return;
+        }
+        if (json) {
+            if (json.errorCode === 200) {
+            } else {
+                alert(json.msg);
+            }
+        } else {
+            alert('网络请求失败');
+        }
+    };
+    xhr.onerror = function () {
+        alert('网络请求失败');
+    };
+    xhr.send(paramsStr);
+}

@@ -1,15 +1,13 @@
 import Utils from '../util/utils';
 let env = Utils.getEnv();
 
-let userHostname, activityHostname,PokemonGoHostName,configHostname,toLogin,couponHostname;
+let hostname;
 if(env == 'production'){
-    userHostname = '//user.api.ofo.com';      //线上域名-流量钱包
+    hostname = ' https://b2b.api.ofo.com';
 }else{
-    userHostname = '//qatest.api.ofo.com';   //测试环境-流量钱包
+    hostname = '//qatest.api.ofo.com';
 }
 
-export const config = configHostname + '/ofo/Api/config';       //获取用户信息
-export const user = userHostname + '/ofo/Api/v4/info/user';       //获取用户信息
-export const wallet = userHostname + '/ofo/Api/v4/info/wallet';   //钱包信息
+export const website = hostname + '/website/commit'; 
 
 

@@ -107,12 +107,12 @@
                         <h2>了解更多商业化合作资源及案例</h2>
                         <div class="form-wrap">
                             <div class="form">
-                                <div class="input"><span class="bg1"></span><input type="text" placeholder="企业名称（必填）"></div>
-                                <div class="checkbox"><span :class="checked ? 'active' : ''"><input type="checkbox" v-model="checked" id="checkbox"></span><label for="checkbox">我是个人广告主</label></div>
-                                <div class="input"><span class="bg2"></span><input type="text" placeholder="姓名（必填）"></div>
-                                <div class="input"><span class="bg3"></span><input type="text" placeholder="手机（必填）"></div>
-                                <div class="input"><span class="bg4"></span><input type="text" placeholder="邮箱"></div>
-                                <div class="button">预约顾问咨询</div>
+                                <div class="input"><span class="bg1"></span><input type="text" v-model="companyName" placeholder="企业名称（必填）"></div>
+                                <div class="checkbox"><span :class="{'active':isSingleUser}"><input type="checkbox" v-model="isSingleUser" id="checkbox"></span><label for="checkbox">我是个人广告主</label></div>
+                                <div class="input"><span class="bg2"></span><input type="text" v-model="name" placeholder="姓名（必填）"></div>
+                                <div class="input"><span class="bg3"></span><input type="text" v-model="tel" placeholder="手机（必填）"></div>
+                                <div class="input"><span class="bg4"></span><input type="text" v-model="email" placeholder="邮箱"></div>
+                                <div class="button" @click="handleClick">预约顾问咨询</div>
                             </div>
                         </div>
                     </div>
@@ -134,6 +134,7 @@
     import NavBar from '../../../components/pc/NavBar';
     import foot from '../../../components/pc/footer';
     import swiper from '../../../components/mobile/swiper';
+    import ajax from '../../../service/fetch';
 
     export default {
         name: 'About',
@@ -163,7 +164,11 @@
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/pc/cooperation/swiper/imgs2/slide3.png',
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/pc/cooperation/swiper/imgs2/slide4.png'
                 ],
-                checked: false
+                companyName: '', //      
+                isSingleUser: false, //          
+                name: '', //   
+                tel: '', //    
+                email: '', //   
             }
         },
         components: {
@@ -171,8 +176,20 @@
             'foot': foot,
             'swiper': swiper
         },
+        methods: {
+            handleClick(){
+                ajax({
+                    companyName: this.companyName,
+                    isSingleUser: false, //          
+                    name: this.name, //   
+                    tel: this.tel, //    
+                    email: this.email, //   
+                })
+            }
+        },
         created() {
             window.scrollTo(0, 0);
+            
         }
     }
 </script>
