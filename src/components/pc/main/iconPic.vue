@@ -36,6 +36,7 @@
   .contain {
     position: relative;
     width: 48.7vw;
+    min-height: 50vw;
     /* background-color: #000000; */
   }
   .wrapper {
@@ -74,7 +75,7 @@
     opacity: 1\9;
     animation: demotext 4s linear 1s 1 normal forwards;
     color:#fff;
-    font-size:16px;
+    font-size:1.2vw;
     text-align:center;
     font-weight: bold;
   }
