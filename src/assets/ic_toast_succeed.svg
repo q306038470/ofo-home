@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="36px" viewBox="0 0 48 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_toast_succeed</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="商业合作" transform="translate(-696.000000, -3194.000000)" fill="#4CAF50" fill-rule="nonzero">
+            <g id="Group-4" transform="translate(635.000000, 3167.000000)">
+                <path d="M79.8330335,55.739617 L103.728451,28.0403921 C104.810712,26.78585 106.705066,26.646189 107.959608,27.7284506 C109.21415,28.8107122 109.353811,30.7050658 108.271549,31.9596079 L82.3913122,61.9596079 C81.2992547,63.2255053 79.3831112,63.3544642 78.1312772,62.2463137 L62.0115145,47.976751 C60.7709097,46.8785408 60.655476,44.9825566 61.7536863,43.7419518 C62.8518965,42.501347 64.7478807,42.3859133 65.9884855,43.4841236 L79.8330335,55.739617 Z" id="ic_toast_succeed"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -89,11 +89,23 @@
                 <h2>了解更多商业化合作<br/>资源及案例</h2>
                 <div class="form-wrap">
                     <div class="form">
-                        <div class="input"><span class="bg1"></span><input type="text" placeholder="企业名称（必填）" v-model="companyName"></div>
+                        <div class="item">
+                            <div class="input"><span class="bg1"></span><input type="text" placeholder="企业名称（必填）" v-model="companyName"></div>
+                            <p class="warn" v-if="btnClick && !companyName"><span><img src="~/assets/ic_warning.png" alt=""></span>请填写公司名称</p>
+                        </div>
                         <div class="checkbox"><span :class="{'active': isSingleUser}"><input type="checkbox" id="checkbox" v-model="isSingleUser"></span><label for="checkbox">我是个人广告主</label></div>
-                        <div class="input"><span class="bg2"></span><input type="text" placeholder="姓名（必填）" v-model="name"></div>
-                        <div class="input"><span class="bg3"></span><input type="text" placeholder="手机（必填）" v-model="tel"></div>
-                        <div class="input"><span class="bg4"></span><input type="text" placeholder="邮箱" v-model="email"></div>
+                        <div class="item">
+                            <div class="input"><span class="bg2"></span><input type="text" placeholder="姓名（必填）" v-model="name"></div>
+                            <p class="warn" v-if="btnClick && !name"><span><img src="~/assets/ic_warning.png" alt=""></span>请填写姓名</p>
+                        </div>
+                        <div class="item">
+                            <div class="input"><span class="bg3"></span><input type="text" placeholder="手机（必填）" v-model="tel"></div>
+                            <p class="warn" v-if="btnClick && !checkMobile(tel)"><span><img src="~/assets/ic_warning.png" alt=""></span>手机号格式错误</p>
+                        </div>
+                        <div class="item">
+                            <div class="input"><span class="bg4"></span><input type="text" placeholder="邮箱" v-model="email"></div>
+                            <p class="warn" v-if="emailError"><span><img src="~/assets/ic_warning.png" alt=""></span>邮箱格式错误</p>
+                        </div>
                         <div class="button" @click="handleClick">预约顾问咨询</div>
                     </div>
                 </div>
@@ -106,6 +118,7 @@
             </div>
         </div>
         <foot class="footer"></foot>
+        <toast v-if="showTip" :success="success"></toast>
     </div>
 </template>
 
@@ -113,6 +126,7 @@
     import navBar from '../../../components/mobile/nav-bar';
     import foot from '../../../components/mobile/foot';
     import swiper from '../../../components/mobile/swiper';
+    import toast from '../../../components/mobile/toast';
     import ajax from '../../../service/fetch';
 
     export default {
@@ -134,49 +148,69 @@
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/swiper/imgs2/slide3.png',
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/swiper/imgs2/slide4.png'
                 ],
-                companyName: '', //      
-                isSingleUser: false, //          
-                name: '', //   
-                tel: '', //    
-                email: '', // 
+                companyName: '',
+                isSingleUser: false,
+                name: '',
+                tel: '',
+                email: '',
+                btnClick: false,
+                emailError: false,
+                success: true,
+                showTip: false
             }
         },
         methods: {
-            checkMobile(tel){ 
-                if(/^1[3|4|5|8|9][0-9]\d{4,8}$/.test(tel)){ 
+            checkMobile(tel){
+                if(/^[1|9][3|4|5|6|7|8|9][0-9]\d{8}$/.test(tel)){ 
                     return true; 
                 } 
                 return false;
             },
-            handleClick(){
+            checkEmail(email){
                 var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
-                if (!this.companyName || !this.name || !this.tel || !this.email) {
-                    alert('请填写完整信息');
-                    return false;
-                }
-                if (!this.checkMobile(this.tel)) {
-                    alert('请填写正确手机号');
-                    return false;
-                }
-                if (!reg.test(this.email)) {
-                    alert('请填写正确邮箱');
-                    return false;
-                }
-                ajax({
+                return reg.test(email);
+            },
+            handleClick(){
+                this.btnClick = true;
+                var params = {
                     companyName: this.companyName,
-                    isSingleUser: this.isSingleUser, //          
-                    name: this.name, //   
-                    tel: this.tel, //    
-                    email: this.email, //   
+                    isSingleUser: this.isSingleUser,
+                    name: this.name,
+                    tel: this.tel
+                };
+                var _this = this;
+                if (!this.companyName || !this.name || !this.checkMobile(this.tel)) {
+                    return false;
+                }
+                if (this.email) {
+                    if (this.checkEmail(this.email)) {
+                        params.email = this.email;
+                        this.emailError = false;
+                    } else {
+                        this.emailError = true;
+                        return false;
+                    }
+                }
+                ajax(params,function(){
+                    _this.showTip = true;
+                    _this.success = true;
+                    setTimeout(function(){
+                        _this.showTip = false;
+                    },2000)
                 },function(){
-                    alert('提交成功')
+                    _this.success = false;
+                    _this.showTip = true;
+                    setTimeout(function(){
+                        _this.showTip = false;
+                    },2000)
                 })
             }
         },
         components: {
             'nav-bar': navBar,
             'foot': foot,
-            'swiper': swiper
+            'swiper': swiper,
+            'toast': toast
         }
     }
 </script>
@@ -335,7 +369,7 @@
         width: 100%;
         .checkbox {
             text-align: right;
-            margin: rem(16) 0;
+            margin: rem(-10) 0 rem(16);
             font-size: rem(12);
             color: #3E3A39;
             span {
@@ -369,7 +403,6 @@
             position: relative;
             overflow: hidden;
             border-radius: rem(4);
-            margin-bottom: rem(15);
             span {
                 position: absolute;
                 top: 0;
@@ -419,6 +452,30 @@
             color: #3E3A39;
             font-weight: bold;
             margin-top: rem(35);
+        }
+        .item {
+            position: relative;
+            padding-bottom: rem(33);
+            .warn {
+                font-size: rem(12);
+                position: absolute;
+                right: 0;
+                top: rem(36);
+                color: #FF5555;
+                padding: rem(5) 0;
+                span {
+                    display: block;
+                    width: rem(16);
+                    height: rem(16);
+                    padding: rem(2);
+                    padding-right: rem(4);
+                    float: left;
+                    text-align: center;
+                } 
+                img {
+                    height: 100%;
+                }
+            }
         }
     }
     .bottom {

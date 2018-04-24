@@ -107,11 +107,23 @@
                         <h2>了解更多商业化合作资源及案例</h2>
                         <div class="form-wrap">
                             <div class="form">
-                                <div class="input"><span class="bg1"></span><input type="text" v-model="companyName" placeholder="企业名称（必填）"></div>
+                                <div class="item">
+                                    <div class="input"><span class="bg1"></span><input type="text" v-model="companyName" placeholder="企业名称（必填）"></div>
+                                    <p class="warn" v-if="btnClick && !companyName"><span><img src="~/assets/ic_warning.png" alt=""></span>请填写公司名称</p>
+                                </div>
                                 <div class="checkbox"><span :class="{'active':isSingleUser}"><input type="checkbox" v-model="isSingleUser" id="checkbox"></span><label for="checkbox">我是个人广告主</label></div>
-                                <div class="input"><span class="bg2"></span><input type="text" v-model="name" placeholder="姓名（必填）"></div>
-                                <div class="input"><span class="bg3"></span><input type="text" v-model="tel" placeholder="手机（必填）"></div>
-                                <div class="input"><span class="bg4"></span><input type="text" v-model="email" placeholder="邮箱"></div>
+                                <div class="item">
+                                    <div class="input"><span class="bg2"></span><input type="text" v-model="name" placeholder="姓名（必填）"></div>
+                                    <p class="warn"  v-if="btnClick && !name"><span><img src="~/assets/ic_warning.png" alt=""></span>请填写姓名</p>
+                                </div>
+                                <div class="item">
+                                    <div class="input"><span class="bg3"></span><input type="text" v-model="tel" placeholder="手机（必填）"></div>
+                                    <p class="warn"  v-if="btnClick && !checkMobile(tel)"><span><img src="~/assets/ic_warning.png" alt=""></span>手机号格式错误</p>
+                                </div>
+                                <div class="item">
+                                    <div class="input"><span class="bg4"></span><input type="text" v-model="email" placeholder="邮箱"></div>
+                                    <p class="warn"  v-if="emailError"><span><img src="~/assets/ic_warning.png" alt=""></span>邮箱格式错误</p>
+                                </div>
                                 <div class="button" @click="handleClick">预约顾问咨询</div>
                             </div>
                         </div>
@@ -126,14 +138,15 @@
             </div>
         </div>
         <foot class="footer"></foot>
+        <toast v-if="showTip" :success="success"></toast>
     </div>
-
 </template>
 
 <script>
     import NavBar from '../../../components/pc/NavBar';
     import foot from '../../../components/pc/footer';
     import swiper from '../../../components/mobile/swiper';
+    import toast from '../../../components/pc/toast';
     import ajax from '../../../service/fetch';
 
     export default {
@@ -164,47 +177,67 @@
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/pc/cooperation/swiper/imgs2/slide3.png',
                     'https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/pc/cooperation/swiper/imgs2/slide4.png'
                 ],
-                companyName: '', //      
-                isSingleUser: false, //          
-                name: '', //   
-                tel: '', //    
-                email: '', //   
+                companyName: '',
+                isSingleUser: false,
+                name: '',
+                tel: '',
+                email: '',
+                btnClick: false,
+                emailError: false,
+                success: true,
+                showTip: false
             }
         },
         components: {
             'nav-bar': NavBar,
             'foot': foot,
-            'swiper': swiper
+            'swiper': swiper,
+            'toast': toast
         },
         methods: {
-            checkMobile(tel){ 
-                if(/^1[3|4|5|8|9][0-9]\d{4,8}$/.test(tel)){ 
+            checkMobile(tel){
+                if(/^[1|9][3|4|5|6|7|8|9][0-9]\d{8}$/.test(tel)){ 
                     return true; 
                 } 
                 return false;
             },
-            handleClick(){
+            checkEmail(email){
                 var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
-                if (!this.companyName || !this.name || !this.tel || !this.email) {
-                    alert('请填写完整信息');
-                    return false;
-                }
-                if (!this.checkMobile(this.tel)) {
-                    alert('请填写正确手机号');
-                    return false;
-                }
-                if (!reg.test(this.email)) {
-                    alert('请填写正确邮箱');
-                    return false;
-                }
-                ajax({
+                return reg.test(email);
+            },
+            handleClick(){
+                this.btnClick = true;
+                var params = {
                     companyName: this.companyName,
-                    isSingleUser: this.isSingleUser, //          
-                    name: this.name, //   
-                    tel: this.tel, //    
-                    email: this.email, //   
+                    isSingleUser: this.isSingleUser,
+                    name: this.name,
+                    tel: this.tel
+                };
+                var _this = this;
+                if (!this.companyName || !this.name || !this.checkMobile(this.tel)) {
+                    return false;
+                }
+                if (this.email) {
+                    if (this.checkEmail(this.email)) {
+                        params.email = this.email;
+                        this.emailError = false;
+                    } else {
+                        this.emailError = true;
+                        return false;
+                    }
+                }
+                ajax(params,function(){
+                    _this.showTip = true;
+                    _this.success = true;
+                    setTimeout(function(){
+                        _this.showTip = false;
+                    },2000)
                 },function(){
-                    alert('提交成功')
+                    _this.success = false;
+                    _this.showTip = true;
+                    setTimeout(function(){
+                        _this.showTip = false;
+                    },2000)
                 })
             }
         },
@@ -471,7 +504,7 @@
                 width: 100%;
                 .checkbox {
                     text-align: right;
-                    margin: -10px 0 24px;
+                    margin: -6px 0 24px;
                     font-size: 16px;
                     color: #3E3A39;
                     span {
@@ -506,7 +539,7 @@
                     position: relative;
                     overflow: hidden;
                     border-radius: 6px;
-                    margin-bottom: 24px;
+                    
                     span {
                         position: absolute;
                         top: 0;
@@ -551,10 +584,32 @@
                     font-size: 18px;
                     color: #3E3A39;
                     font-weight: bold;
-                    margin-top: 48px;
+                    margin-top: 40px;
                     cursor: pointer;
                     &:hover {
                         background: #FFCC00;
+                    }
+                }
+                .item {
+                    position: relative;
+                    padding-bottom: 24px;
+                    .warn {
+                        font-size: 12px;
+                        position: absolute;
+                        right: 0;
+                        top: 52px;
+                        color: #FF5555;
+                        span {
+                            display: block;
+                            width: 17px;
+                            height: 17px;
+                            padding: 3px;
+                            float: left;
+                            text-align: center;
+                        } 
+                        img {
+                            height: 100%;
+                        }
                     }
                 }
             }

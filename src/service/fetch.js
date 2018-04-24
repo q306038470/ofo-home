@@ -84,7 +84,7 @@
 
 import {website} from '../constant/url'
 
-export default function ajax(params,cb) {
+export default function ajax(params,cb,fail) {
     let paramsStr = '';
     const param = [];
     for (let key in params) {
@@ -95,28 +95,26 @@ export default function ajax(params,cb) {
     console.log(paramsStr)
     let xhr = new XMLHttpRequest();
     xhr.open('POST', website);
-    // xhr.setRequestHeader('Content-type', 'application/json;charset=utf-8');
     xhr.onload = function () {
         var json;
         try {
             json = JSON.parse(xhr.responseText);
         } catch (e) {
-            alert('网络请求失败');
+            fail && fail();
             return;
         }
         if (json) {
             if (json.errorCode == 200) {
                 cb && cb()
             } else {
-                alert(json.msg);
+                fail && fail();
             }
         } else {
-            alert('网络请求失败');
+            fail && fail();
         }
     };
     xhr.onerror = function () {
-        alert('网络请求失败');
+        fail && fail();
     };
-    console.log(params)
     xhr.send(JSON.stringify(params));
 }
