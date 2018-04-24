@@ -91,20 +91,20 @@
                     <div class="form">
                         <div class="item">
                             <div class="input"><span class="bg1"></span><input type="text" placeholder="企业名称（必填）" v-model="companyName"></div>
-                            <p class="warn" v-if="btnClick && !companyName"><span><img src="~/assets/ic_warning.png" alt=""></span>请填写公司名称</p>
+                            <p class="warn" v-if="btnClick && !companyName"><span><img src="~/assets/ic_warning.svg" alt=""></span>请填写公司名称</p>
                         </div>
                         <div class="checkbox"><span :class="{'active': isSingleUser}"><input type="checkbox" id="checkbox" v-model="isSingleUser"></span><label for="checkbox">我是个人广告主</label></div>
                         <div class="item">
                             <div class="input"><span class="bg2"></span><input type="text" placeholder="姓名（必填）" v-model="name"></div>
-                            <p class="warn" v-if="btnClick && !name"><span><img src="~/assets/ic_warning.png" alt=""></span>请填写姓名</p>
+                            <p class="warn" v-if="btnClick && !name"><span><img src="~/assets/ic_warning.svg" alt=""></span>请填写姓名</p>
                         </div>
                         <div class="item">
                             <div class="input"><span class="bg3"></span><input type="text" placeholder="手机（必填）" v-model="tel"></div>
-                            <p class="warn" v-if="btnClick && !checkMobile(tel)"><span><img src="~/assets/ic_warning.png" alt=""></span>手机号格式错误</p>
+                            <p class="warn" v-if="btnClick && !checkMobile(tel)"><span><img src="~/assets/ic_warning.svg" alt=""></span>手机号格式错误</p>
                         </div>
                         <div class="item">
                             <div class="input"><span class="bg4"></span><input type="text" placeholder="邮箱" v-model="email"></div>
-                            <p class="warn" v-if="emailError"><span><img src="~/assets/ic_warning.png" alt=""></span>邮箱格式错误</p>
+                            <p class="warn" v-if="emailError"><span><img src="~/assets/ic_warning.svg" alt=""></span>邮箱格式错误</p>
                         </div>
                         <div class="button" @click="handleClick">预约顾问咨询</div>
                     </div>

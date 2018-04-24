@@ -61,13 +61,39 @@ const utils = {
     },
 
     devicetype: function() {
-        var ua = navigator.userAgent.toLowerCase();
-        //var up = navigator.appVersion.toLowerCase();
-        return {
-          isAndroid: (/android/gi).test(ua) || (/vivobrowser/gi).test(ua),
-          isIOS: (/iphone|ipad|itouch|ipod/gi).test(ua)
+    var ua = navigator.userAgent.toLowerCase();
+    //var up = navigator.appVersion.toLowerCase();
+    return {
+        isAndroid: (/android/gi).test(ua) || (/vivobrowser/gi).test(ua),
+        isIOS: (/iphone|ipad|itouch|ipod/gi).test(ua)
+    };
+    },
+      /**
+     * 统一rem
+     */
+    initFrontSize: function() {
+        function getStyle (element, attr) {
+        if(element.currentStyle){
+            return element.currentStyle[attr];
+        } else {
+            return window.getComputedStyle(element,null)[attr];
+        }
         };
-      }
+        var html = document.getElementsByTagName('html')[0]
+        var body = document.getElementsByTagName('body')[0];
+        body.style.width = '5rem';
+        var bodyWidth = parseInt(getStyle(body, 'width'));
+        var width = screen.width;
+        var scale = 1;
+        var fontSize = parseInt(getStyle(html, "fontSize"));
+        if(bodyWidth != width) {
+        scale = width / bodyWidth;
+        fontSize = fontSize * scale * scale;
+        html.style.fontSize = fontSize + 'px';
+        }
+        body.style.width = '100%';
+        return;
+    },
 };
 
 export default utils;

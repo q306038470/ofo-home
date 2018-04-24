@@ -17,13 +17,18 @@
   //     // 'base_url': userHostname,
   //     'source': window.OFO_ENV.sourceForApi
   // });
-
+  import utils from './util/utils';
+  
   export default {
-    name: 'app'
+    name: 'app',
+    mounted(){
+			// utils.initFrontSize();
+		}
   }
 </script>
 
 <style lang="scss">
+@import './style/normalize.scss';
 @import './style/reset.scss';
 @import './style/rem.scss';
 

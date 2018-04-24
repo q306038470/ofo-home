@@ -77,7 +77,7 @@
     color:#fff;
     font-size:1.2vw;
     text-align:center;
-    font-weight: bold;
+    /* font-weight: bold; */
   }
   .circle2 {
     position: absolute;

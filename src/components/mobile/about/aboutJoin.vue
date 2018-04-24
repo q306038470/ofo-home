@@ -172,7 +172,7 @@ img {
         color: #3E3A39;
         .text {
             padding-left: rem(18);
-            padding-top: rem(74);
+            padding-top: rem(70);
             h3 {
                 font-size: rem(20);
                 padding-bottom: rem(7);
@@ -268,14 +268,14 @@ img {
         left: 0;
         top: 0;
         width: rem(283);
-        height: rem(269);
+        height: rem(272);
         padding-left: rem(24);
-        padding-top: rem(24);
+        padding-top: rem(20);
         color: #3E3A39;
         background: #FFD900;
         h3 {
             font-size: rem(20);
-            padding-bottom: rem(7);
+            padding-bottom: rem(5);
         }
         p {
             font-size: rem(15);

@@ -19,6 +19,7 @@
 </template>
 
 <script>
+    import utils from '@/util/utils';
     import navBar from '../../../components/mobile/nav-bar';
     import navHead from '../../../components/mobile/nav-head';
     import foot from '../../../components/mobile/foot';
@@ -63,7 +64,7 @@
             'about-partner': aboutPartner,
             'about-prize': aboutPrize,
             'about-join': aboutJoin,
-        }
+        },
     }
 </script>
 
