@@ -351,7 +351,7 @@
     }
 }
 .row6 {
-    height: rem(742);
+    height: rem(800);
     background: #FBFBFB;
     color: #3E3A39;
     padding: 0 rem(24);
@@ -451,7 +451,7 @@
             font-size: rem(15);
             color: #3E3A39;
             font-weight: bold;
-            margin-top: rem(35);
+            margin-top: rem(10);
         }
         .item {
             position: relative;
@@ -501,6 +501,6 @@
     }
 }
 .footer {
-    margin-top: 0;
+    margin-top: rem(-20);
 }
 </style>
