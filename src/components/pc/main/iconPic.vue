@@ -61,7 +61,9 @@
     position: absolute;
     width: 37.3vw;
     top: 6.1vw;
-    left: 4vw;
+    left: 50%;
+    margin-left: -18.65vw;
+    /* left: 4vw; */
     opacity: 0;
     opacity: 1\9;
     animation: demotitle 4s linear 1s 1 normal forwards;
@@ -70,7 +72,9 @@
     position: absolute;
     width: 30vw;
     top: 11.5vw;
-    left: 8.5vw;
+    /* left: 8.5vw; */
+    left: 50%;
+    margin-left: -15vw;
     opacity: 0;
     opacity: 1\9;
     animation: demotext 4s linear 1s 1 normal forwards;
