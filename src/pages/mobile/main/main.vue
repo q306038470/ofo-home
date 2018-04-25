@@ -57,7 +57,7 @@
 	import utils from '../../../util/utils';
 
 	export default {
-		name: "main",
+		name: "mainPage",
 		data() {
 			return {
 				values: [
@@ -169,13 +169,13 @@
 <style lang="scss" scoped>
 @import "../../../style/rem.scss";
 .main_wrapper {
-  	width: 100vw;
+  	width: 100%;
 }
 .poster {
   	position: relative;
 }
 .poster .bg-poster {
-  	width: 100vw;
+  	width: 100%;
 }
 .poster .float {
 	position: absolute;
@@ -184,8 +184,8 @@
 	// opacity: 0.4;
 	color: #ffffff;
 	top: 0;
-	width: 100vw;
-	height: 93.3vw;
+	width: 100%;
+	height: 93.3%;
 	.play_title {
 		position: absolute;
 		top: rem(75);
@@ -231,7 +231,7 @@
 	overflow: hidden;
 }
 .player video {
-	width: 100vw;
+	width: 100%;
 	position: absolute;
 	top: rem(44);
 	z-index: 1000;

@@ -316,11 +316,11 @@
         text-align: center;
     }
     .bottom {
-        padding: rem(30) rem(30) rem(15);
+        padding: rem(30) rem(25) rem(15);
         overflow: hidden;
         .card {
             float: left;
-            width: rem(150);
+            width: rem(145);
             height: rem(200);
             background: #FCF9E6;
             border-radius: 10px; 

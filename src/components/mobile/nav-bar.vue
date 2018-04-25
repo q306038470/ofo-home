@@ -127,12 +127,14 @@ export default {
 
 
 <style lang="scss" scoped>
+@import '../../style/normalize.scss';
+@import '../../style/reset.scss';
 @import '../../style/rem.scss';
 
     .navBar{
         position: relative;
         height: rem(44);
-        width: 100vw;
+        width: 100%;
         background-color: #ffffff;
         left: 0;
         top: 0;
@@ -180,10 +182,11 @@ export default {
         z-index: 100;
         left: 0;
         top: rem(43.5);
+        width: 100%;
     }
     .navBar .navList li{
         display: block;
-        width: 100vw;
+        width: 100%;
         height: rem(57);
         line-height: rem(57);
         padding-left: rem(50.5);
