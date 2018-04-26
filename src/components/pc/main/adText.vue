@@ -93,7 +93,7 @@
   }
   .text {
     width: 34.02vw;
-    /* height: 8.3vw; */
+    /* height: 5.8vw; */
     font-family: PingFangSC-Regular;
     font-size: 0.98vw;
     color: #fff;
@@ -101,6 +101,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
-    /* white-space:nowrap; */
+    /* white-space:nowrap;
+    text-overflow: ellipsis; */
   }
 </style>

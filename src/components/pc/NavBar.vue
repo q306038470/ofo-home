@@ -1,8 +1,7 @@
 <template>
     <div :class="[(flag||scroll) ? 'con' : 'con2']">
-        <img v-if="scroll&&imgSrc!=2" @click="goMain" class="pic" src="http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/logo_black.svg" alt="">
-        <img v-if="!scroll" @click="goMain" class="pic" src="http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/logo_white.svg" alt="">
-        <img v-if="imgSrc==2" @click="goMain" class="pic" src="http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/logo_black.svg" alt="">
+        <img v-if="(flag||scroll)" @click="goMain" class="pic" src="http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/logo_black.svg" alt="">
+        <img v-else @click="goMain" class="pic" src="http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/logo_white.svg" alt="">
         <div :class="[(flag||scroll) ? 'nav' : 'nav2']">
             <li v-for="(item,index) in arr" @click="check(item,arr)" :class="[item.checked ? 'active' : 'inact']" :key="index">{{ item.title }}</li>
         </div>

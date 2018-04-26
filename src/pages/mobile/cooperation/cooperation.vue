@@ -53,34 +53,36 @@
         <div class="row row5">
             <h2>微风行动·企业年卡</h2>
             <div class="bottom">
-                <div class="card">
-                    <div class="icon"><img src="https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/ic_annualcard_custom.svg" alt=""></div>
-                    <h3>专属定制</h3>
-                    <p>企业登录</p>
-                    <p>专属UI专属运营</p>
-                    <p>配套支持</p>
-                </div>
-                <div class="card">
-                    <div class="icon"><img src="https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/ic_annualcard_welfare.svg" alt=""></div>
-                    <h3>员工福利</h3>
-                    <p>全年不限次数</p>
-                    <p>免押金骑行</p>
-                    <p>骑行里程兑换</p>
-                    <p>专属福利</p>
-                </div>
-                <div class="card">
-                    <div class="icon"><img src="https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/ic_annualcard_media.svg" alt=""></div>
-                    <h3>媒体支持</h3>
-                    <p>ofo小黄车APP</p>
-                    <p>及微博微信</p>
-                    <p>媒体支持</p>
-                </div>
-                <div class="card">
-                    <div class="icon"><img src="https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/ic_annualcard_publicwelfare.svg" alt=""></div>
-                    <h3>公益行动</h3>
-                    <p>用每一次骑行</p>
-                    <p>真正地为环保</p>
-                    <p>公益的事业助力</p>
+                <div class="card-wrap">
+                    <div class="card">
+                        <div class="icon"><img src="https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/ic_annualcard_custom.svg" alt=""></div>
+                        <h3>专属定制</h3>
+                        <p>企业登录</p>
+                        <p>专属UI专属运营</p>
+                        <p>配套支持</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><img src="https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/ic_annualcard_welfare.svg" alt=""></div>
+                        <h3>员工福利</h3>
+                        <p>全年不限次数</p>
+                        <p>免押金骑行</p>
+                        <p>骑行里程兑换</p>
+                        <p>专属福利</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><img src="https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/ic_annualcard_media.svg" alt=""></div>
+                        <h3>媒体支持</h3>
+                        <p>ofo小黄车APP</p>
+                        <p>及微博微信</p>
+                        <p>媒体支持</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon"><img src="https://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news_2018_04_02/mobile/cooperation/ic_annualcard_publicwelfare.svg" alt=""></div>
+                        <h3>公益行动</h3>
+                        <p>用每一次骑行</p>
+                        <p>真正地为环保</p>
+                        <p>公益的事业助力</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -318,9 +320,12 @@
     .bottom {
         padding: rem(30) rem(25) rem(15);
         overflow: hidden;
+        .card-wrap {
+            overflow: hidden;
+        }
         .card {
             float: left;
-            width: rem(145);
+            width: 48%;
             height: rem(200);
             background: #FCF9E6;
             border-radius: 10px; 
@@ -328,7 +333,7 @@
             text-align: center;
             color: #3E3A39;
             &:nth-of-type(odd) {
-                margin-right: rem(15);
+                margin-right: 4%;
             }
             h3 {
                 font-size: rem(18);
