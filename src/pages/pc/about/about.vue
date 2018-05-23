@@ -80,7 +80,6 @@
     }
     .header {
         width: 100vw;
-        background: #000000;
     }
     .header .about-video {
         width: 100vw;
