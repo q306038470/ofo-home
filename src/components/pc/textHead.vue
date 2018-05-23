@@ -1,7 +1,8 @@
 <template>
     <div class="header">
         <div class="mc"></div>
-        <video :src="video" autoplay loop></video>
+        <video v-if="video" :src="video" autoplay loop></video>
+        <img v-else :src="imgUrl" alt="">
         <p class="textTitle">{{ title }}</p>
         <p class="text">{{ text }}</p>
     </div>
@@ -10,7 +11,7 @@
 <script>
     export default {
         name: 'textHead',
-        props:['video','title','text'],
+        props:['video','title','text','imgUrl'],
     }
 </script>
 
@@ -37,6 +38,12 @@
         top: 5vw;
     }
     .header video {
+        position: absolute;
+        width: 100%;
+        top: 5vw;
+        z-index: 0;
+    }
+    .header img {
         position: absolute;
         width: 100%;
         top: 5vw;

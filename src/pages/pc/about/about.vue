@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav-bar class="navbar" :arr="arr" :imgSrc="imgSrc" :flag="flag"></nav-bar>
-        <text-head :video="videoUrl" :text="text" :title="title"></text-head>
+        <text-head :imgUrl="videoUrl" :text="text" :title="title"></text-head>
         <text-bar :items="items"></text-bar>
         <about-ofo v-if="items[0].checked"></about-ofo>
         <about-develop v-if="items[1].checked"></about-develop>
@@ -46,7 +46,7 @@
                 arr: [{title:'首页',checked:false,index:0},{title:'新闻',checked:false,index:1},{title:'关于',checked:true,index:2},{title:'商业合作',checked:false,index:3}],
                 imgSrc: 2,
                 flag:true,
-                videoUrl: 'http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/about.mp4',
+                videoUrl: 'http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/about.png',
                 title: '关于我们',
                 text: 'ofo小黄车，全球最大的无桩共享单车平台'
             }

@@ -1,7 +1,7 @@
 <template>
     <div class="newspage">
         <nav-bar :arr="arr" :imgSrc="imgSrc" :flag="flag"></nav-bar>
-        <text-head :video="videoUrl" :text="text" :title="title"></text-head>
+        <text-head :imgUrl="videoUrl" :text="text" :title="title"></text-head>
         <text-bar :items="items" @selectPgs="selectPgs" class="text-bar"></text-bar>
         <pagination :pgs="selPgs" :flag="flag" @changeFlag="changeFlag" @setSession="setSession"></pagination>
         <foot class="foot"></foot>
@@ -41,7 +41,7 @@ export default {
             pgs: pgs,
             selPgs: pgs,
             flag: 1,
-            videoUrl: 'http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/news.mp4',
+            videoUrl: 'http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/new.png',
             title: '新闻动态',
             text: '全球首创“无桩单车共享”模式，让世界没有陌生的角落'
         }

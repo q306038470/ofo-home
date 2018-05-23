@@ -107,7 +107,7 @@
 					{
 					url: "http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/allWorld.png",
 					detail:
-						"ofo在全球20个国家超过250座城市提供服务。其中海外运营城市超过50座，投放超过10万辆共享单车，为海外用户累计提供超过1000万次骑行服务。目前，ofo 在海外由当地用户贡献的订单占比已超过99%，优秀的产品、技术和运营实力，让ofo受到越来越多国家的认可，成为真正服务全球的共享单车平台。"},
+						"ofo在全球21个国家超过250座城市提供服务。其中海外运营城市超过50座，投放超过10万辆共享单车，为海外用户累计提供超过1000万次骑行服务。目前，ofo 在海外由当地用户贡献的订单占比已超过99%，优秀的产品、技术和运营实力，让ofo受到越来越多国家的认可，成为真正服务全球的共享单车平台。"},
 					{
 					url: "http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/societyDuty.png",
 					detail:
