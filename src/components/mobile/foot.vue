@@ -113,7 +113,7 @@
 						</a>
 					</div>
 					<div class="footer_text">
-						<p>电话：4001-507-507（周一至周日：7X24H)</p>
+						<p>电话：4001-507-507（7：00到21：00)</p>
 						<p>地址：北京市海淀区北四环西路58号理想国际大厦11层</p>
 						<a id='___szfw_logo___' href='https://credit.szfw.org/CX20170726035260000588.html' target='_blank'>
 							<img src="http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/longtou.png" alt="">

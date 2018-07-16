@@ -121,7 +121,7 @@
         </div>
         <div class="location">
             <p class="text1">
-                4001 507 507（周一至周日：7X24H） 北京市海淀区北四环西路58号理想国际大厦11层
+                4001 507 507（7：00到21：00） 北京市海淀区北四环西路58号理想国际大厦11层
             </p>
             <p class="text2">
                 Copyright © 2017 ofo Inc. 保留所有权利。京公网安备 11010802022978号   |   公共事务邮箱 gr@ofo.so 商务合作邮箱 bdinchina@ofo.so
