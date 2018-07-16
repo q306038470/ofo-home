@@ -1,7 +1,7 @@
 <template>
 	<div class="contain" @scroll="scrollFn">
 		<nav-bar class="navbar" :arr="arr" :imgSrc="imgSrc" :flag="flag"></nav-bar>
-		<video class="mainVideo" src="http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/new.mp4" autoplay loop></video>
+		<video class="mainVideo" src="http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/new.mp4" muted autoplay loop></video>
 		
 		<!-- <video class="mainVideo" src="../../../assets/new.mp4" autoplay loop></video> -->
 		<div class="logo">
