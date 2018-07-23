@@ -48,7 +48,7 @@
                 flag:true,
                 videoUrl: 'http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/about.png',
                 title: '关于我们',
-                text: 'ofo小黄车，全球最大的无桩共享单车平台'
+                text: 'ofo小黄车，全球领先的无桩共享单车平台'
             }
         },
         components: {

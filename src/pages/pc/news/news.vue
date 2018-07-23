@@ -43,7 +43,7 @@ export default {
             flag: 1,
             videoUrl: 'http://ofo.oss-cn-qingdao.aliyuncs.com/ofoweb/official/new.png',
             title: '新闻动态',
-            text: '全球首创“无桩单车共享”模式，让世界没有陌生的角落'
+            text: '全球领先的“无桩单车共享”模式，让世界没有陌生的角落'
         }
     },
     created() {
