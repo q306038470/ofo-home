@@ -68,7 +68,9 @@ let phone = [{
 let route = [];
 let isPC;
 let dev = utils.devicetype();
-isPC = (!dev.isAndroid && !dev.isIOS) ? true : false;
+// isPC = (!dev.isAndroid && !dev.isIOS) ? true : false;
+isPC = (!dev.isAndroid && !dev.isIOS) ? false : true;
+
 route = isPC ? pc : phone;
 //  route = phone;
 export default new Router({
